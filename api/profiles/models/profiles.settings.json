@@ -1,0 +1,61 @@
+{
+  "kind": "collectionType",
+  "collectionName": "profiles",
+  "info": {
+    "name": "profiles",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
+    },
+    "DOB": {
+      "type": "datetime"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "firstname"
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "company": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "bio": {
+      "type": "richtext"
+    },
+    "profile_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "profile"
+    }
+  }
+}
